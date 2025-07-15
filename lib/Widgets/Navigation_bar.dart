@@ -1,93 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/Constants/text.dart';
 
-class Navigation_Bar extends StatefulWidget {
+class Navigation_Bar extends StatelessWidget {
   const Navigation_Bar({super.key});
 
   @override
-  State<Navigation_Bar> createState() => _Navigation_BarState();
-}
-
-class _Navigation_BarState extends State<Navigation_Bar> {
-  @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 220, left: 20),
-          child: Image.asset(height: 64, "assets/images/TS_Logo.png"),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 50.0, right: 10),
-          child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Home',
-                style: ktextstyle.copyWith(fontSize: 24),
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    // Font & spacing based on screen width
+    double navFontSize = (screenWidth * 0.017).clamp(14.0, 24.0);
+    double horizontalPadding = (screenWidth * 0.03).clamp(10.0, 50.0);
+    double logoPadding = (screenWidth * 0.15).clamp(20.0, 220.0);
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(right: logoPadding, left: 20),
+            child: Image.asset(
+              "assets/images/TS_Logo.png",
+              height: screenWidth < 500 ? 40 : 64,
+            ),
+          ),
+          ...[
+            'Home',
+            'About',
+            'Skills',
+            'Projects'
+          ].map((item) => Padding(
+                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    item,
+                    style: ktextstyle.copyWith(fontSize: navFontSize),
+                  ),
+                ),
               )),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 50.0, right: 10),
-          child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'About',
-                style: ktextstyle.copyWith(fontSize: 24),
-              )),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 50.0, right: 10),
-          child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Education',
-                style: ktextstyle.copyWith(fontSize: 24),
-              )),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 50.0, right: 10),
-          child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Skills',
-                style: ktextstyle.copyWith(fontSize: 24),
-              )),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 50.0, right: 10),
-          child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Projects',
-                style: ktextstyle.copyWith(fontSize: 24),
-              )),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 50.0, right: 10),
-          child: TextButton(
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: TextButton(
               onPressed: () {},
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.phone,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 190, 190, 190),
+                    size: 20,
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  const SizedBox(width: 10),
                   Text(
                     'Contact',
                     style: ktextstyle.copyWith(
-                        fontSize: 24,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600),
+                      fontSize: navFontSize,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
-              )),
-        ),
-      ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

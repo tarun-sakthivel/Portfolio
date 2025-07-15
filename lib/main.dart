@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/Screens/Home.dart';
 import 'package:portfolio_website/Screens/Mainview.dart';
 
 void main() => runApp(const MyApp());
@@ -13,3 +12,4 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false, home: Mainview());
   }
 }
+

@@ -20,111 +20,95 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    const double baseWidth = 1400.0;
+
+    // Font & spacing based on screen width
+    double navFontSize = (screenWidth * 0.017).clamp(14.0, 24.0);
+    double horizontalPadding = (screenWidth * 0.03).clamp(10.0, 50.0);
+    double logoPadding = (screenWidth * 0.15).clamp(20.0, 220.0);
+
+    // Define responsive font sizes
+    double smallTextSize = screenWidth * 0.018; // ~25 at 1400px width
+    double largeTextSize = screenWidth * 0.16; // ~280 at 1400px width
+    double headingTextSize = screenWidth * 0.04; // For "About"
+    // Left alignment
+    double leftTextX = (-0.96 * (screenWidth / baseWidth)).clamp(-1.0, -0.2);
+
+// Right alignment
+    double rightTextX = (0.96 * (screenWidth / baseWidth)).clamp(0.2, 0.8);
+    double boxHeight = screenWidth * 0.32;
+    double topY = -0.9;
+    double bottomY = 0.9;
+    if (screenWidth < 900) {
+      // Adjust for smaller screens
+      leftTextX = -1.0;
+      rightTextX = 0.9;
+      topY = -0.8;
+      bottomY = 0.6;
+      smallTextSize = screenWidth * 0.02; // Adjusted for smaller screens
+      largeTextSize = screenWidth * 0.12; // Adjusted for smaller screens
+      headingTextSize = screenWidth * 0.04; // Adjusted for smaller screens
+    }
     return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 30.0),
-          child: BgContainer(height: 680, width: 1200, borderRadius: 20),
-        ),
         Padding(
           padding: const EdgeInsets.only(top: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 10, right: 65.0, bottom: 50),
-                child: Navigation_Bar(),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 380,
-                    width: 800,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 40.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Hey !",
-                            style: ktextstyle.copyWith(fontSize: 48),
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "I am",
-                                style: ktextstyle.copyWith(fontSize: 48),
-                              ),
-                              AnimatedTextKit(
-                                  isRepeatingAnimation: true,
-                                  repeatForever: true,
-                                  animatedTexts: [
-                                    TyperAnimatedText(
-                                      " Tarun Sakthivel",
-                                      textStyle: ktextstyle.copyWith(
-                                          fontSize: 48,
-                                          color: const Color(0xffffead25)),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                          Text(
-                            "App developer & UI/UX ",
-                            style: ktextstyle.copyWith(fontSize: 48),
-                          ),
-                          Text(
-                            "designer",
-                            style: ktextstyle.copyWith(fontSize: 48),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
-                            child: Text(
-                              "I build apps with innovative design and stable \n one more details will be added soon.",
-                              style: ktextstyle.copyWith(
-                                  fontSize: 24, fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                        ],
+              SizedBox(
+                height: boxHeight,
+                width: double.infinity,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment(leftTextX, topY),
+                      child: Text(
+                        "Hey ! I am Tarun Sakthivel \n App developer & UI/UX designer",
+                        style: ktextstyle.copyWith(fontSize: smallTextSize),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
-                    child: Column(
-                      children: [Image.asset("assets/images/Profilepic.png")],
+                    Text(
+                      'PORTFOLIO',
+                      style: TextStyle(
+                        fontSize: largeTextSize,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Poppins',
+                      ),
                     ),
-                  )
-                ],
+                    Align(
+                      alignment: Alignment(rightTextX, bottomY),
+                      child: Text(
+                        "I build apps and websites with \n innovation and impat.",
+                        style: ktextstyle.copyWith(fontSize: smallTextSize),
+                      ),
+                    ),
+                    Align(
+                      alignment: const Alignment(0, 0), // Fixed position
+                      child: Image.asset(
+                        "assets/images/Me_image.png",
+                        width: screenWidth * 0.25, // Make width responsive
+                        height: screenWidth *
+                            0.25, // Optional: maintain aspect ratio
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const Padding(
-                  padding: EdgeInsets.only(left: 40), child: HireButton()),
-              // Marquee(
-              //   text:
-              //       'Flutter  Development  |  Mobile Apps  |  UI/UX Design  |  Web Development  |  Innovative Solutions',
-              //   // style: const TextStyle(fontSize: 24, color: Colors.black),
-              //   // scrollAxis: Axis.horizontal,
-              //   // crossAxisAlignment: CrossAxisAlignment.start,
-              //   // blankSpace: 20.0,
-              //   // velocity: 100.0, // Speed of the scroll
-              //   // startPadding: 10.0,
-              //   // accelerationDuration: const Duration(seconds: 1),
-              //   // accelerationCurve: Curves.linear,
-              //   // decelerationDuration: const Duration(seconds: 1),
-              //   // decelerationCurve: Curves.easeOut,
-              //   // textDirection:
-              //   //     TextDirection.ltr, // Scrolling from right to left
-              // ),
               Padding(
-                padding: const EdgeInsets.only(top: 50),
+                padding: EdgeInsets.only(top: screenWidth * 0.1),
                 child: Text(
-                  "About",
+                  "About Me",
                   style: ktextstyle.copyWith(
-                      fontSize: 56,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
+                    fontSize: headingTextSize,
+                    color: const Color.fromARGB(255, 190, 190, 190),
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ],

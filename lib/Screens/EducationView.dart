@@ -14,7 +14,7 @@ class Educationview extends StatefulWidget {
 class _EducationviewState extends State<Educationview> {
   @override
   Widget build(BuildContext context) {
-    final _stepperData = [
+    final stepperData = [
       StepperItemData(
         id: '1',
         content: {
@@ -59,11 +59,11 @@ class _EducationviewState extends State<Educationview> {
     ];
 
     return Stack(children: [
-      BgContainer(height: 680, width: 1200, borderRadius: 20),
-      Positioned(
+      //  BgContainer(height: 680, width: 1200, borderRadius: 20),
+      const Positioned(
         bottom: 80,
         child: Center(
-          child: Container(
+          child: SizedBox(
             height: 600,
             width: 1300,
             child: Center(

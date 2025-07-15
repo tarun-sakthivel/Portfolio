@@ -19,7 +19,7 @@ class _SkillsPageState extends State<SkillsPage>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 900),
+      duration: const Duration(milliseconds: 900),
     );
   }
 
@@ -31,6 +31,12 @@ class _SkillsPageState extends State<SkillsPage>
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    // Responsive sizing
+    final double containerWidth = (screenWidth * 0.9).clamp(300.0, 1440.0);
+    final double containerHeight = (containerWidth * 0.4).clamp(200.0, 600.0);
+    final bool isMobile = screenWidth < 600;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,14 +60,14 @@ class _SkillsPageState extends State<SkillsPage>
               child: AnimatedBuilder(
                 animation: _controller,
                 builder: (context, child) {
-                  return Container(
-                    height: 600,
+                  return SizedBox(
+                    height: containerHeight,
                     width: 1440,
                     child: AnimatedSwitcher(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       child: _isHovered
-                          ? Padding(
-                              padding: const EdgeInsets.only(left: 60.0),
+                          ? const Padding(
+                              padding: EdgeInsets.only(left: 60.0),
                               child: RiveAnimation.asset(
                                 "assets/rive/Skillset.riv",
                                 key: ValueKey('riveAnimation'),
@@ -70,6 +76,7 @@ class _SkillsPageState extends State<SkillsPage>
                           : Padding(
                               padding: const EdgeInsets.only(left: 8.0),
                               child: flutter.Image.asset(
+                                height: containerHeight * 0.2,
                                 'assets/images/Heart.png',
                               ),
                             ),
