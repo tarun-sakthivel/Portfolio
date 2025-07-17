@@ -59,56 +59,72 @@ class _HomepageState extends State<Homepage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: boxHeight,
+                height: screenWidth < 500 ? 600 : boxHeight,
                 width: double.infinity,
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
                     Align(
-                      alignment: Alignment(leftTextX, topY),
-                      child: Text(
-                        "Hey ! I am Tarun Sakthivel \n App developer & UI/UX designer",
-                        style: ktextstyle.copyWith(fontSize: smallTextSize),
-                      ),
+                      alignment: screenWidth < 500
+                          ? Alignment(-1, -0.6)
+                          : Alignment(leftTextX, topY),
+                      child: screenWidth < 500
+                          ? Text(
+                              "Hey ! I am Tarun Sakthivel \n App developer \n & UI/UX designer",
+                              style: ktextstyle.copyWith(
+                                  fontSize: screenWidth < 500
+                                      ? smallTextSize * 2
+                                      : smallTextSize),
+                            )
+                          : Text(
+                              "Hey ! I am Tarun Sakthivel \n App developer & UI/UX designer",
+                              style: ktextstyle.copyWith(
+                                  fontSize: screenWidth < 500
+                                      ? smallTextSize * 2
+                                      : smallTextSize),
+                            ),
                     ),
-                    Text(
-                      'PORTFOLIO',
-                      style: TextStyle(
-                        fontSize: largeTextSize,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Poppins',
+                    Align(
+                      alignment: screenWidth < 500
+                          ? Alignment(-1, 0)
+                          : Alignment(0, 0),
+                      child: Text(
+                        'PORTFOLIO',
+                        style: TextStyle(
+                          fontSize: screenWidth < 500
+                              ? largeTextSize * 1.2
+                              : largeTextSize,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Poppins',
+                        ),
                       ),
                     ),
                     Align(
                       alignment: Alignment(rightTextX, bottomY),
                       child: Text(
-                        "I build apps and websites with \n innovation and impat.",
-                        style: ktextstyle.copyWith(fontSize: smallTextSize),
+                        "I build apps and websites with \n innovation and impact.",
+                        style: ktextstyle.copyWith(
+                            fontSize: screenWidth < 500
+                                ? smallTextSize * 2
+                                : smallTextSize),
                       ),
                     ),
                     Align(
                       alignment: const Alignment(0, 0), // Fixed position
                       child: Image.asset(
                         "assets/images/Me_image.png",
-                        width: screenWidth * 0.25, // Make width responsive
-                        height: screenWidth *
-                            0.25, // Optional: maintain aspect ratio
+                        width: screenWidth < 500
+                            ? screenWidth * 0.4
+                            : screenWidth * 0.25, // Make width responsive
+                        height: screenWidth < 500
+                            ? screenWidth * 0.4
+                            : screenWidth *
+                                0.25, // Optional: maintain aspect ratio
                         fit: BoxFit.contain,
                       ),
                     ),
                   ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: screenWidth * 0.1),
-                child: Text(
-                  "About Me",
-                  style: ktextstyle.copyWith(
-                    fontSize: headingTextSize,
-                    color: const Color.fromARGB(255, 190, 190, 190),
-                    fontWeight: FontWeight.w700,
-                  ),
                 ),
               ),
             ],

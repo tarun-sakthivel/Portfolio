@@ -30,143 +30,295 @@ class _MyWidgetState extends State<MyWidget> {
               right: 0,
               top: 0,
               child: Image.asset("assets/images/ProjectEllipse1.png")),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "TARUN",
-                        style: ktextstyle.copyWith(
-                            color: const Color.fromARGB(255, 190, 190, 190),
-                            fontSize: largeTextSize * 0.4,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 70.0),
-                        child: Text(
-                          "SAKTHIVEL",
-                          style: ktextstyle.copyWith(
-                              color: const Color.fromARGB(255, 190, 190, 190),
-                              fontSize: largeTextSize * 0.4,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Flutter \n Developer",
-                            style: TextStyle(
-                              color: Color.fromRGBO(225, 225, 225, 100),
-                              fontSize: smallTextSize,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: 'YourFontFamily',
-                            ),
-                          ),
-                          const SizedBox(width: 50), // Spacing between roles
-                          Text(
-                            "UI/UX \n Designer",
-                            style: TextStyle(
-                              color: Color.fromRGBO(225, 225, 225, 100),
-                              fontSize: smallTextSize,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: 'YourFontFamily',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: smallTextSize * 18,
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(18, 18, 18, 100),
-                      border: Border.all(
-                          color:
-                              Color.fromRGBO(60, 60, 60, 100)), // subtle border
-                      borderRadius:
-                          BorderRadius.circular(20), // rounded corners
-                    ),
-                    child: Column(
+          screenWidth < 500
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Site",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 190, 190, 190),
-                            fontSize: smallTextSize,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "TARUN",
+                              style: ktextstyle.copyWith(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: largeTextSize * 0.5,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30.0),
+                              child: Text(
+                                "SAKTHIVEL",
+                                style: ktextstyle.copyWith(
+                                    color: const Color.fromARGB(
+                                        255, 190, 190, 190),
+                                    fontSize: largeTextSize * 0.5,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Flutter \n Developer",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    fontSize: smallTextSize * 1.8,
+                                    fontWeight: FontWeight.w300,
+                                    fontFamily: 'YourFontFamily',
+                                  ),
+                                ),
+                                const SizedBox(
+                                    width: 50), // Spacing between roles
+                                Text(
+                                  "UI/UX \n Designer",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    fontSize: smallTextSize * 1.8,
+                                    fontWeight: FontWeight.w300,
+                                    fontFamily: 'YourFontFamily',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 20),
-                        Text(
-                          "created by me",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 190, 190, 190),
-                            fontSize: smallTextSize,
-                            fontWeight: FontWeight.w300,
-                            fontFamily:
-                                'YourFontFamily', // use a thin, modern font if desired
+                        Container(
+                          width: smallTextSize * 14,
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(18, 18, 18, 100),
+                            border: Border.all(
+                                color: Color.fromRGBO(
+                                    60, 60, 60, 100)), // subtle border
+                            borderRadius:
+                                BorderRadius.circular(20), // rounded corners
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "designed by me",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 190, 190, 190),
-                            fontSize: smallTextSize,
-                            fontWeight: FontWeight.w300,
-                            fontFamily: 'YourFontFamily',
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Site",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize * 1.3,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                              Text(
+                                "created by me",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize * 1.3,
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily:
+                                      'YourFontFamily', // use a thin, modern font if desired
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "designed by me",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize * 1.3,
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: 'YourFontFamily',
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "powered by flutter 3",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize * 1.5,
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: 'YourFontFamily',
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "powered by flutter 3",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 190, 190, 190),
-                            fontSize: smallTextSize,
-                            fontWeight: FontWeight.w300,
-                            fontFamily: 'YourFontFamily',
-                          ),
-                        ),
+                        )
                       ],
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              buildTags([
-                'Instagram',
-                'LinkedIn',
-                'GitHub',
-                'Email',
-                'Paper'
-              ], [
-                "assets/images/instagram.png",
-                "assets/images/LinkedIn.png",
-                "assets/images/GitHub.png",
-                "assets/images/mail.png",
-                "assets/images/mail.png"
-              ], [
-                "https://www.instagram.com/__tarun_.s/?utm_source=qr#",
-                "https://www.linkedin.com/in/tarun-sakthivel-0b904a254/",
-                "https://github.com/tarun-sakthivel",
-                "mailto:tarunofficial077@gmail.com",
-                "https://ieeexplore.ieee.org/document/10725931"
-              ], screenWidth),
-            ],
-          ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    buildTags([
+                      'Instagram',
+                      'LinkedIn',
+                      'GitHub',
+                      'Email',
+                      'Paper'
+                    ], [
+                      "assets/images/instagram.png",
+                      "assets/images/LinkedIn.png",
+                      "assets/images/GitHub.png",
+                      "assets/images/mail.png",
+                      "assets/images/mail.png"
+                    ], [
+                      "https://www.instagram.com/__tarun_.s/?utm_source=qr#",
+                      "https://www.linkedin.com/in/tarun-sakthivel-0b904a254/",
+                      "https://github.com/tarun-sakthivel",
+                      "mailto:tarunofficial077@gmail.com",
+                      "https://ieeexplore.ieee.org/document/10725931"
+                    ], screenWidth),
+                  ],
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "TARUN",
+                              style: ktextstyle.copyWith(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: largeTextSize * 0.4,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 70.0),
+                              child: Text(
+                                "SAKTHIVEL",
+                                style: ktextstyle.copyWith(
+                                    color: const Color.fromARGB(
+                                        255, 190, 190, 190),
+                                    fontSize: largeTextSize * 0.4,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Flutter \n Developer",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    fontSize: smallTextSize,
+                                    fontWeight: FontWeight.w300,
+                                    fontFamily: 'YourFontFamily',
+                                  ),
+                                ),
+                                const SizedBox(
+                                    width: 50), // Spacing between roles
+                                Text(
+                                  "UI/UX \n Designer",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    fontSize: smallTextSize,
+                                    fontWeight: FontWeight.w300,
+                                    fontFamily: 'YourFontFamily',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: smallTextSize * 15,
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(18, 18, 18, 100),
+                            border: Border.all(
+                                color: Color.fromRGBO(
+                                    60, 60, 60, 100)), // subtle border
+                            borderRadius:
+                                BorderRadius.circular(20), // rounded corners
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Site",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                              Text(
+                                "created by me",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize,
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily:
+                                      'YourFontFamily', // use a thin, modern font if desired
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "designed by me",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize,
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: 'YourFontFamily',
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "powered by flutter 3",
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 190, 190, 190),
+                                  fontSize: smallTextSize,
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: 'YourFontFamily',
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    buildTags([
+                      'Instagram',
+                      'LinkedIn',
+                      'GitHub',
+                      'Email',
+                      'Paper'
+                    ], [
+                      "assets/images/instagram.png",
+                      "assets/images/LinkedIn.png",
+                      "assets/images/GitHub.png",
+                      "assets/images/mail.png",
+                      "assets/images/mail.png"
+                    ], [
+                      "https://www.instagram.com/__tarun_.s/?utm_source=qr#",
+                      "https://www.linkedin.com/in/tarun-sakthivel-0b904a254/",
+                      "https://github.com/tarun-sakthivel",
+                      "mailto:tarunofficial077@gmail.com",
+                      "https://ieeexplore.ieee.org/document/10725931"
+                    ], screenWidth),
+                  ],
+                ),
         ]),
       ),
     );

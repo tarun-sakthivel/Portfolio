@@ -15,7 +15,7 @@ class AboutMe extends StatelessWidget {
     double textWidth = isSmallScreen ? screenWidth * 0.9 : screenWidth * 0.55;
     double imageSize = (screenWidth * 0.25).clamp(120, 380);
     double ellipseSize = (screenWidth * 0.05).clamp(30, 80);
-
+    double headingTextSize = screenWidth * 0.04; // For "About"
     void _launchResume() async {
       const resumeUrl =
           'https://docs.google.com/document/d/13WmlUKAUFjtz1usSO7cESXifezePx0AbPv8bLrmj8EU/edit?usp=sharing'; // Replace with your actual hosted link
@@ -58,6 +58,17 @@ class AboutMe extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: EdgeInsets.only(top: screenWidth * 0.1, bottom: 20),
+                child: Text(
+                  "About Me",
+                  style: ktextstyle.copyWith(
+                    fontSize: headingTextSize * 1.2,
+                    color: const Color.fromARGB(255, 190, 190, 190),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
               isSmallScreen
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,8 +76,10 @@ class AboutMe extends StatelessWidget {
                         // Image above text in small screen
                         Image.asset(
                           "assets/images/Abtmeimg.png",
-                          width: imageSize,
-                          height: imageSize,
+                          width:
+                              screenWidth < 500 ? imageSize * 2.5 : imageSize,
+                          height:
+                              screenWidth < 500 ? imageSize * 2.5 : imageSize,
                           fit: BoxFit.contain,
                         ),
                         const SizedBox(height: 20),
@@ -74,41 +87,60 @@ class AboutMe extends StatelessWidget {
                         //   "assets/images/StraightLine.png",
                         //   height: imageSize * 0.3,
                         // ),
-                        TextButton(
-                          onPressed: _launchResume,
-                          style: TextButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 12),
-                            backgroundColor: const Color(0xFF2D2D2D),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Colors.blue,
+                                Colors.purple
+                              ], // Gradient for border
                             ),
-                            shadowColor: Colors.black.withOpacity(0.2),
-                            elevation: 5,
+                            borderRadius: BorderRadius.circular(
+                                12), // Apply to outer gradient
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(Icons.picture_as_pdf,
-                                  color: Colors.white, size: 20),
-                              const SizedBox(width: 8),
-                              Text(
-                                "Resume",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: fontSize,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 0.8,
+                          child: Container(
+                            margin: EdgeInsets.all(
+                                1), // Inner container for padding
+                            child: TextButton(
+                              onPressed: _launchResume,
+                              style: TextButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 24, vertical: 12),
+                                backgroundColor: const Color(0xFF2D2D2D),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
+                                shadowColor: Colors.black.withOpacity(0.2),
+                                elevation: 5,
                               ),
-                            ],
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(Icons.picture_as_pdf,
+                                      color: Colors.white, size: 20),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    "Resume",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: fontSize,
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0.8,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
                         Text.rich(
                           TextSpan(
                             style: ktextstyle.copyWith(
-                                fontSize: fontSize, color: Colors.white),
+                                fontSize: screenWidth < 500
+                                    ? fontSize * 1.3
+                                    : fontSize,
+                                color: Colors.white),
                             children: const [
                               TextSpan(text: "As a versatile "),
                               TextSpan(
@@ -227,34 +259,50 @@ class AboutMe extends StatelessWidget {
                           ],
                         ),
                         Center(
-                          child: TextButton(
-                            onPressed: _launchResume,
-                            style: TextButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 24, vertical: 12),
-                              backgroundColor: const Color(0xFF2D2D2D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Colors.blue,
+                                  Colors.purple
+                                ], // Gradient for border
                               ),
-                              shadowColor: Colors.black.withOpacity(0.2),
-                              elevation: 5,
+                              borderRadius: BorderRadius.circular(
+                                  12), // Apply to outer gradient
                             ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Icon(Icons.picture_as_pdf,
-                                    color: Colors.white, size: 20),
-                                const SizedBox(width: 8),
-                                Text(
-                                  "Resume",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: fontSize,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 0.8,
+                            child: Container(
+                              margin: EdgeInsets.all(
+                                  1), // Inner container for padding
+                              child: TextButton(
+                                onPressed: _launchResume,
+                                style: TextButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 24, vertical: 12),
+                                  backgroundColor: const Color(0xFF2D2D2D),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
+                                  shadowColor: Colors.black.withOpacity(0.2),
+                                  elevation: 5,
                                 ),
-                              ],
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Icon(Icons.picture_as_pdf,
+                                        color: Colors.white, size: 20),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      "Resume",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: fontSize,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0.8,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                         )

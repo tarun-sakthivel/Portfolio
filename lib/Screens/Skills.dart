@@ -33,59 +33,71 @@ class _SkillsPageState extends State<SkillsPage>
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    // Responsive sizing
+    final bool isMobile = screenWidth < 500;
+
     final double containerWidth = (screenWidth * 0.9).clamp(300.0, 1440.0);
     final double containerHeight = (containerWidth * 0.4).clamp(200.0, 600.0);
-    final bool isMobile = screenWidth < 600;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Center(
-          child: MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                _isHovered = true;
-              });
-              _controller.forward();
-            },
-            onExit: (_) {
-              setState(() {
-                _isHovered = false;
-              });
-              _controller.reverse();
-            },
-            child: RepaintBoundary(
-              // Add RepaintBoundary here
-              child: AnimatedBuilder(
-                animation: _controller,
-                builder: (context, child) {
-                  return SizedBox(
-                    height: containerHeight,
-                    width: 1440,
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: _isHovered
-                          ? const Padding(
-                              padding: EdgeInsets.only(left: 60.0),
-                              child: RiveAnimation.asset(
-                                "assets/rive/Skillset.riv",
-                                key: ValueKey('riveAnimation'),
-                              ),
-                            )
-                          : Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: flutter.Image.asset(
-                                height: containerHeight * 0.2,
-                                'assets/images/Heart.png',
-                              ),
-                            ),
+          child: isMobile
+              ? SizedBox(
+                  width: containerWidth * 1.2,
+                  height: containerHeight * 1.2,
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 16.0),
+                    child: RiveAnimation.asset(
+                      "assets/rive/Skillset.riv",
                     ),
-                  );
-                },
-              ),
-            ),
-          ),
+                  ),
+                )
+              : MouseRegion(
+                  onEnter: (_) {
+                    setState(() {
+                      _isHovered = true;
+                    });
+                    _controller.forward();
+                  },
+                  onExit: (_) {
+                    setState(() {
+                      _isHovered = false;
+                    });
+                    _controller.reverse();
+                  },
+                  child: RepaintBoundary(
+                    child: AnimatedBuilder(
+                      animation: _controller,
+                      builder: (context, child) {
+                        return SizedBox(
+                          width: containerWidth,
+                          height: containerHeight,
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 300),
+                            child: _isHovered
+                                ? const Padding(
+                                    padding: EdgeInsets.only(left: 60.0),
+                                    child: RiveAnimation.asset(
+                                      "assets/rive/Skillset.riv",
+                                      key: ValueKey('riveAnimation'),
+                                    ),
+                                  )
+                                : Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: flutter.Image.asset(
+                                      'assets/images/Heart.png',
+                                      height: containerHeight * 0.5,
+                                      key: const ValueKey('staticImage'),
+                                    ),
+                                  ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
         ),
       ],
     );
