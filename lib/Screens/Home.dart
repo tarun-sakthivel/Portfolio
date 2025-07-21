@@ -9,6 +9,7 @@ import 'package:portfolio_website/Widgets/HireButton.dart';
 import 'package:portfolio_website/Widgets/Navigation_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:portfolio_website/Widgets/mq.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -59,21 +60,43 @@ class _HomepageState extends State<Homepage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: screenWidth < 500 ? 600 : boxHeight,
+                height: screenWidth < 500 ? 600 : boxHeight * 1,
                 width: double.infinity,
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
+                    screenWidth < 500
+                        ? Align(
+                            alignment: Alignment(-6, -0.8),
+                            child: Image.asset(
+                              "assets/images/ProjectEllipse2.png",
+                              width: screenWidth * 0.7, // Make width responsive
+                              height: screenWidth *
+                                  0.8, // Optional: maintain aspect ratio
+                              fit: BoxFit.fitHeight,
+                            ))
+                        : Text(""),
+                    screenWidth < 500
+                        ? Align(
+                            alignment: Alignment(4, 0.8),
+                            child: Image.asset(
+                              "assets/images/ProjectEllipse3.png",
+                              width: screenWidth * 0.7, // Make width responsive
+                              height: screenWidth *
+                                  0.8, // Optional: maintain aspect ratio
+                              fit: BoxFit.fitHeight,
+                            ))
+                        : Text(""),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(-1, -0.6)
+                          ? Alignment(-0.4, -0.4)
                           : Alignment(leftTextX, topY),
                       child: screenWidth < 500
                           ? Text(
                               "Hey ! I am Tarun Sakthivel \n App developer \n & UI/UX designer",
                               style: ktextstyle.copyWith(
                                   fontSize: screenWidth < 500
-                                      ? smallTextSize * 2
+                                      ? smallTextSize * 1.6
                                       : smallTextSize),
                             )
                           : Text(
@@ -86,44 +109,106 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(-1, 0)
+                          ? Alignment(0.6, 0)
                           : Alignment(0, 0),
                       child: Text(
                         'PORTFOLIO',
                         style: TextStyle(
                           fontSize: screenWidth < 500
-                              ? largeTextSize * 1.2
+                              ? largeTextSize * 1.4
                               : largeTextSize,
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Anton',
                         ),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(rightTextX, bottomY),
+                      alignment: screenWidth < 500
+                          ? Alignment(0.5, 0.4)
+                          : Alignment(rightTextX, bottomY),
                       child: Text(
                         "I build apps and websites with \n innovation and impact.",
                         style: ktextstyle.copyWith(
                             fontSize: screenWidth < 500
-                                ? smallTextSize * 2
+                                ? smallTextSize * 1.8
                                 : smallTextSize),
                       ),
                     ),
                     Align(
-                      alignment: const Alignment(0, 0), // Fixed position
-                      child: Image.asset(
-                        "assets/images/Me_image.png",
-                        width: screenWidth < 500
-                            ? screenWidth * 0.4
-                            : screenWidth * 0.25, // Make width responsive
-                        height: screenWidth < 500
-                            ? screenWidth * 0.4
-                            : screenWidth *
-                                0.25, // Optional: maintain aspect ratio
-                        fit: BoxFit.contain,
-                      ),
+                      alignment: screenWidth < 500
+                          ? const Alignment(-15, 0)
+                          : Alignment(-0.01, 0), // Fixed position
+                      child: screenWidth < 500
+                          ? Image.asset(
+                              "assets/images/skeletal.png",
+                              width: screenWidth * 0.8, // Make width responsive
+                              height: screenWidth *
+                                  0.8, // Optional: maintain aspect ratio
+                              fit: BoxFit.fitHeight,
+                            )
+                          : Image.asset(
+                              "assets/images/skeletal.png",
+                              width: screenWidth < 500
+                                  ? screenWidth * 0.4
+                                  : screenWidth * 0.25, // Make width responsive
+                              height: screenWidth < 500
+                                  ? screenWidth * 0.4
+                                  : screenWidth *
+                                      0.25, // Optional: maintain aspect ratio
+                              fit: BoxFit.contain,
+                            ),
                     ),
+                    screenWidth < 500
+                        ? Align(
+                            alignment: Alignment(0.5, 0.7),
+                            child: TextButton(
+                              onPressed: () async {
+                                // Your onPressed logic
+                                final uri = Uri.parse(
+                                    "mailto:tarunofficial077@gmail.com");
+                                if (await canLaunchUrl(uri)) {
+                                  await launchUrl(uri,
+                                      mode: LaunchMode.externalApplication);
+                                } else {
+                                  throw 'Could not launch mailto:tarunofficial077@gmail.com';
+                                }
+                              },
+                              style: TextButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 12),
+                                backgroundColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: const BorderSide(color: Colors.white),
+                                ),
+                              ),
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Text(
+                                    'To Collab',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 10,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.black,
+                                      size: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        : Text("")
                   ],
                 ),
               ),

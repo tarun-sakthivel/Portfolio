@@ -29,26 +29,6 @@ class AboutMe extends StatelessWidget {
     return Stack(
       children: [
         // Top left ellipse
-        Positioned(
-          top: 0,
-          left: 0,
-          child: Image.asset(
-            "assets/images/Ellipse1.png",
-            width: ellipseSize,
-            height: ellipseSize,
-          ),
-        ),
-
-        // Bottom right ellipse
-        Positioned(
-          bottom: 0,
-          right: 0,
-          child: Image.asset(
-            "assets/images/Ellipse2.png",
-            width: ellipseSize,
-            height: ellipseSize,
-          ),
-        ),
 
         Padding(
           padding: EdgeInsets.symmetric(
@@ -77,7 +57,7 @@ class AboutMe extends StatelessWidget {
                         Image.asset(
                           "assets/images/Abtmeimg.png",
                           width:
-                              screenWidth < 500 ? imageSize * 2.5 : imageSize,
+                              screenWidth < 500 ? imageSize * 2.2 : imageSize,
                           height:
                               screenWidth < 500 ? imageSize * 2.5 : imageSize,
                           fit: BoxFit.contain,
@@ -91,8 +71,8 @@ class AboutMe extends StatelessWidget {
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
                               colors: [
-                                Colors.blue,
-                                Colors.purple
+                                Color.fromARGB(255, 0, 38, 70),
+                                Color.fromARGB(255, 251, 228, 255)
                               ], // Gradient for border
                             ),
                             borderRadius: BorderRadius.circular(
@@ -137,10 +117,9 @@ class AboutMe extends StatelessWidget {
                         Text.rich(
                           TextSpan(
                             style: ktextstyle.copyWith(
-                                fontSize: screenWidth < 500
-                                    ? fontSize * 1.3
-                                    : fontSize,
-                                color: Colors.white),
+                                fontSize: fontSize,
+                                color:
+                                    const Color.fromARGB(255, 243, 243, 243)),
                             children: const [
                               TextSpan(text: "As a versatile "),
                               TextSpan(
@@ -187,6 +166,7 @@ class AboutMe extends StatelessWidget {
                   : Column(
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // Image
@@ -263,8 +243,8 @@ class AboutMe extends StatelessWidget {
                             decoration: BoxDecoration(
                               gradient: const LinearGradient(
                                 colors: [
-                                  Colors.blue,
-                                  Colors.purple
+                                  Color.fromARGB(255, 0, 38, 70),
+                                  Color.fromARGB(255, 251, 228, 255)
                                 ], // Gradient for border
                               ),
                               borderRadius: BorderRadius.circular(

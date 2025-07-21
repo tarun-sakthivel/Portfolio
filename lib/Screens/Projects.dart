@@ -450,7 +450,7 @@ class _ProjectsviewState extends State<Projectsview> {
                           ],
                         ),
                   const SizedBox(height: 40), // Added spacing for better layout
-                  screenWidth < 500
+                  screenWidth < 600
                       ? Container(
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 143, 143, 143),

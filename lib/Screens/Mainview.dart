@@ -102,10 +102,6 @@ class _MainviewState extends State<Mainview> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Logo
-              Image.asset(
-                "assets/images/TS_Logo.png",
-                height: screenWidth * 0.08,
-              ),
 
               // Navigation Buttons
               Expanded(
@@ -149,7 +145,7 @@ class _MainviewState extends State<Mainview> {
                               'Contact',
                               style: ktextstyle.copyWith(
                                 fontSize: screenWidth * 0.03,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
@@ -213,7 +209,7 @@ class _MainviewState extends State<Mainview> {
                               'Contact',
                               style: ktextstyle.copyWith(
                                 fontSize: screenWidth * 0.02,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
