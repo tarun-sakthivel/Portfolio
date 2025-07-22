@@ -89,7 +89,7 @@ class _HomepageState extends State<Homepage> {
                         : Text(""),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(-0.4, -0.4)
+                          ? Alignment(-0.38, -0.4)
                           : Alignment(leftTextX, topY),
                       child: screenWidth < 500
                           ? Text(
@@ -109,7 +109,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(0.6, 0)
+                          ? Alignment(0.55, 0)
                           : Alignment(0, 0),
                       child: Text(
                         'PORTFOLIO',
@@ -137,7 +137,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Align(
                       alignment: screenWidth < 500
-                          ? const Alignment(-15, 0)
+                          ? const Alignment(-16, 0)
                           : Alignment(-0.01, 0), // Fixed position
                       child: screenWidth < 500
                           ? Image.asset(
