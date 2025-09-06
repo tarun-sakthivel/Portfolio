@@ -16,7 +16,7 @@ class AboutMe extends StatelessWidget {
     double imageSize = (screenWidth * 0.25).clamp(120, 380);
     double ellipseSize = (screenWidth * 0.05).clamp(30, 80);
     double headingTextSize = screenWidth * 0.04; // For "About"
-    void _launchResume() async {
+    void launchResume() async {
       const resumeUrl =
           'https://docs.google.com/document/d/13WmlUKAUFjtz1usSO7cESXifezePx0AbPv8bLrmj8EU/edit?usp=sharing'; // Replace with your actual hosted link
       if (await canLaunchUrl(Uri.parse(resumeUrl))) {
@@ -43,7 +43,7 @@ class AboutMe extends StatelessWidget {
                 child: Text(
                   "About Me",
                   style: ktextstyle.copyWith(
-                    fontSize: headingTextSize * 1.2,
+                    fontSize: headingTextSize * 2,
                     color: const Color.fromARGB(255, 190, 190, 190),
                     fontWeight: FontWeight.w700,
                   ),
@@ -79,14 +79,15 @@ class AboutMe extends StatelessWidget {
                                 12), // Apply to outer gradient
                           ),
                           child: Container(
-                            margin: EdgeInsets.all(
+                            margin: const EdgeInsets.all(
                                 1), // Inner container for padding
                             child: TextButton(
-                              onPressed: _launchResume,
+                              onPressed: launchResume,
                               style: TextButton.styleFrom(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 24, vertical: 12),
-                                backgroundColor: const Color(0xFF2D2D2D),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 3, 3, 3),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -100,7 +101,7 @@ class AboutMe extends StatelessWidget {
                                       color: Colors.white, size: 20),
                                   const SizedBox(width: 8),
                                   Text(
-                                    "Resume",
+                                    "Click to view Resume",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: fontSize,
@@ -114,52 +115,77 @@ class AboutMe extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        Text.rich(
-                          TextSpan(
-                            style: ktextstyle.copyWith(
-                                fontSize: fontSize,
-                                color:
-                                    const Color.fromARGB(255, 243, 243, 243)),
-                            children: const [
-                              TextSpan(text: "As a versatile "),
-                              TextSpan(
-                                text: "Flutter",
-                                style: TextStyle(color: Colors.yellow),
-                              ),
-                              TextSpan(text: " Android Engineer skilled in "),
-                              TextSpan(
-                                text: "Python",
-                                style: TextStyle(color: Colors.yellow),
-                              ),
-                              TextSpan(text: ", "),
-                              TextSpan(
-                                text: "Java",
-                                style: TextStyle(color: Colors.yellow),
-                              ),
-                              TextSpan(text: ", and "),
-                              TextSpan(
-                                text: "Figma",
-                                style: TextStyle(color: Colors.yellow),
-                              ),
-                              TextSpan(
-                                  text:
-                                      ", I specialize in crafting seamless, "),
-                              TextSpan(
-                                text: "user-centric",
-                                style: TextStyle(color: Colors.yellow),
-                              ),
-                              TextSpan(
-                                  text:
-                                      " mobile experiences and designing intuitive apps and websites. My expertise in state management with "),
-                              TextSpan(
-                                text: "BLoC architecture",
-                                style: TextStyle(color: Colors.yellow),
-                              ),
-                              TextSpan(
-                                  text:
-                                      " is complemented by a portfolio of impactful projects like NOVO and ZeroWaste. With a passion for innovation and problem-solving, I deliver high-quality, functional, and visually appealing software. I'm eager to bring my design and development skills to new and exciting challenges.Lets build something that stands out — and works better."),
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Text.rich(
+                            TextSpan(
+                              style: ktextstyle.copyWith(
+                                  fontSize: fontSize,
+                                  color:
+                                      const Color.fromARGB(255, 243, 243, 243)),
+                              children: const [
+                                TextSpan(text: "As a versatile "),
+                                TextSpan(
+                                  text: "Flutter",
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                                TextSpan(text: " Android Engineer skilled in "),
+                                TextSpan(
+                                  text: "Python",
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                                TextSpan(text: ", "),
+                                TextSpan(
+                                  text: "Java",
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                                TextSpan(text: ", and "),
+                                TextSpan(
+                                  text: "Figma",
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                                TextSpan(
+                                    text:
+                                        ", I specialize in crafting seamless, "),
+                                TextSpan(
+                                  text: "user-centric",
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                                TextSpan(
+                                    text:
+                                        " mobile experiences and designing intuitive apps and websites. My expertise in state management with "),
+                                TextSpan(
+                                  text: "BLoC architecture",
+                                  style: TextStyle(color: Colors.yellow),
+                                ),
+                                TextSpan(
+                                    text:
+                                        " is complemented by a portfolio of impactful projects like NOVO and ZeroWaste. With a passion for innovation and problem-solving, I deliver high-quality, functional, and visually appealing software. I'm eager to bring my design and development skills to new and exciting challenges.Lets build something that stands out — and works better."),
+                              ],
+                            ),
                           ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Education:",
+                                style: ktextstyle.copyWith(
+                                    fontSize: fontSize,
+                                    color: const Color.fromARGB(
+                                        255, 243, 243, 243),
+                                    fontWeight: FontWeight.w600)),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Text(
+                              "B.Tech in Computer Science and Engineering - VIT-AP University (2022-2026)",
+                              style: ktextstyle.copyWith(
+                                  fontSize: fontSize,
+                                  color: const Color.fromARGB(
+                                      255, 243, 243, 243))),
                         ),
                       ],
                     )
@@ -179,11 +205,11 @@ class AboutMe extends StatelessWidget {
                             const SizedBox(width: 30),
 
                             // Line image
-                            Image.asset(
-                              "assets/images/StraightLine.png",
-                              height: imageSize * 0.5,
-                              fit: BoxFit.contain,
-                            ),
+                            // Image.asset(
+                            //   "assets/images/StraightLine.png",
+                            //   height: imageSize * 0.5,
+                            //   fit: BoxFit.contain,
+                            // ),
                             const SizedBox(width: 30),
 
                             // Text
@@ -251,14 +277,15 @@ class AboutMe extends StatelessWidget {
                                   12), // Apply to outer gradient
                             ),
                             child: Container(
-                              margin: EdgeInsets.all(
+                              margin: const EdgeInsets.all(
                                   1), // Inner container for padding
                               child: TextButton(
-                                onPressed: _launchResume,
+                                onPressed: launchResume,
                                 style: TextButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 24, vertical: 12),
-                                  backgroundColor: const Color(0xFF2D2D2D),
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 0, 0, 0),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(12),
                                   ),
@@ -270,9 +297,9 @@ class AboutMe extends StatelessWidget {
                                   children: [
                                     const Icon(Icons.picture_as_pdf,
                                         color: Colors.white, size: 20),
-                                    const SizedBox(width: 8),
+                                    const SizedBox(width: 20),
                                     Text(
-                                      "Resume",
+                                      "Click to view Resume",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: fontSize,

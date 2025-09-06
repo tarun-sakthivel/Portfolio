@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/Constants/text.dart';
-import 'package:portfolio_website/Widgets/BgContainer.dart';
 import 'package:rive/rive.dart';
 import 'package:stepper_list_view/stepper_list_view.dart';
 

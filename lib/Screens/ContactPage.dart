@@ -68,7 +68,7 @@ class _MyWidgetState extends State<MyWidget> {
                                 Text(
                                   "Flutter \n Developer",
                                   style: TextStyle(
-                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    color: const Color.fromRGBO(225, 225, 225, 100),
                                     fontSize: smallTextSize * 1.8,
                                     fontWeight: FontWeight.w300,
                                     fontFamily: 'YourFontFamily',
@@ -79,7 +79,7 @@ class _MyWidgetState extends State<MyWidget> {
                                 Text(
                                   "UI/UX \n Designer",
                                   style: TextStyle(
-                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    color: const Color.fromRGBO(225, 225, 225, 100),
                                     fontSize: smallTextSize * 1.8,
                                     fontWeight: FontWeight.w300,
                                     fontFamily: 'YourFontFamily',
@@ -93,9 +93,9 @@ class _MyWidgetState extends State<MyWidget> {
                           width: smallTextSize * 14,
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(18, 18, 18, 100),
+                            color: const Color.fromRGBO(18, 18, 18, 100),
                             border: Border.all(
-                                color: Color.fromRGBO(
+                                color: const Color.fromRGBO(
                                     60, 60, 60, 100)), // subtle border
                             borderRadius:
                                 BorderRadius.circular(20), // rounded corners
@@ -151,7 +151,7 @@ class _MyWidgetState extends State<MyWidget> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildTags([
@@ -212,7 +212,7 @@ class _MyWidgetState extends State<MyWidget> {
                                 Text(
                                   "Flutter \n Developer",
                                   style: TextStyle(
-                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    color: const Color.fromRGBO(225, 225, 225, 100),
                                     fontSize: smallTextSize,
                                     fontWeight: FontWeight.w300,
                                     fontFamily: 'YourFontFamily',
@@ -223,7 +223,7 @@ class _MyWidgetState extends State<MyWidget> {
                                 Text(
                                   "UI/UX \n Designer",
                                   style: TextStyle(
-                                    color: Color.fromRGBO(225, 225, 225, 100),
+                                    color: const Color.fromRGBO(225, 225, 225, 100),
                                     fontSize: smallTextSize,
                                     fontWeight: FontWeight.w300,
                                     fontFamily: 'YourFontFamily',
@@ -237,9 +237,9 @@ class _MyWidgetState extends State<MyWidget> {
                           width: smallTextSize * 15,
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(18, 18, 18, 100),
+                            color: const Color.fromRGBO(18, 18, 18, 100),
                             border: Border.all(
-                                color: Color.fromRGBO(
+                                color: const Color.fromRGBO(
                                     60, 60, 60, 100)), // subtle border
                             borderRadius:
                                 BorderRadius.circular(20), // rounded corners
@@ -295,7 +295,7 @@ class _MyWidgetState extends State<MyWidget> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildTags([

@@ -54,7 +54,7 @@ class _ProjectsviewState extends State<Projectsview> {
                       "Projects",
                       style: ktextstyle.copyWith(
                           color: const Color.fromARGB(255, 190, 190, 190),
-                          fontSize: screenWidth * 0.05,
+                          fontSize: largeTextSize * 0.4,
                           fontWeight: FontWeight.w700),
                     ),
                   ),
@@ -66,7 +66,7 @@ class _ProjectsviewState extends State<Projectsview> {
                                 15), // Outer border radius
                           ),
                           child: Container(
-                            margin: EdgeInsets.all(1),
+                            margin: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: kbackgroundcolor,
                               borderRadius: BorderRadius.circular(
@@ -199,7 +199,7 @@ class _ProjectsviewState extends State<Projectsview> {
                                 15), // Outer border radius
                           ),
                           child: Container(
-                            margin: EdgeInsets.all(2),
+                            margin: const EdgeInsets.all(2),
                             decoration: BoxDecoration(
                               color: kbackgroundcolor,
                               borderRadius: BorderRadius.circular(15),
@@ -324,7 +324,7 @@ class _ProjectsviewState extends State<Projectsview> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Container(
-                            margin: EdgeInsets.all(2),
+                            margin: const EdgeInsets.all(2),
                             decoration: BoxDecoration(
                               color: kbackgroundcolor,
                               borderRadius: BorderRadius.circular(15),
@@ -414,7 +414,7 @@ class _ProjectsviewState extends State<Projectsview> {
                                   const SizedBox(height: 20),
                                   SizedBox(
                                     width: double.infinity,
-                                    height: 200,
+                                    height: 250,
                                     child: Text(
                                       "In rural areas, many plants and animals were dying due to unidentified diseases. To address this, we developed FarmAid — an app where farmers can upload images of affected crops or animals to receive instant diagnostic reports with risk ratings (1–10) in visual format. The app supports local languages for accessibility and features a community page for reporting outbreaks like disease spread or pest attacks. It also helps locate nearby veterinarians for timely assistance.We used machine learning for classifications.",
                                       style: ktextstyle.copyWith(
@@ -457,7 +457,7 @@ class _ProjectsviewState extends State<Projectsview> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Container(
-                            margin: EdgeInsets.all(2),
+                            margin: const EdgeInsets.all(2),
                             decoration: BoxDecoration(
                               color: kbackgroundcolor,
                               borderRadius: BorderRadius.circular(15),
@@ -539,7 +539,7 @@ class _ProjectsviewState extends State<Projectsview> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                                 width: 40), // Added spacing for better layout
                             Expanded(
                               flex: 2,
@@ -581,7 +581,7 @@ class _ProjectsviewState extends State<Projectsview> {
                             // Project Image Container
                           ],
                         ),
-                  SizedBox(height: 80), // dded spacing for better layout
+                  const SizedBox(height: 80), // dded spacing for better layout
                 ],
               ),
             ),
@@ -609,13 +609,13 @@ class _ProjectsviewState extends State<Projectsview> {
               skill,
               style: ktextstyle.copyWith(
                   color: const Color.fromARGB(255, 190, 190, 190),
-                  fontSize: screenwidth * 0.0125,
+                  fontSize: screenwidth * 0.015,
                   fontWeight: FontWeight.w300),
             ),
           );
         }).toList(),
       );
-    } else
+    } else {
       return Wrap(
         spacing: 10.0, // space between tags horizontally
         runSpacing: 10.0, // space between lines
@@ -636,5 +636,6 @@ class _ProjectsviewState extends State<Projectsview> {
           );
         }).toList(),
       );
+    }
   }
 }

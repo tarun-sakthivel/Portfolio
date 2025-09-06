@@ -67,7 +67,7 @@ class _HomepageState extends State<Homepage> {
                   children: [
                     screenWidth < 500
                         ? Align(
-                            alignment: Alignment(-6, -0.8),
+                            alignment: const Alignment(-6, -0.8),
                             child: Image.asset(
                               "assets/images/ProjectEllipse2.png",
                               width: screenWidth * 0.7, // Make width responsive
@@ -75,10 +75,10 @@ class _HomepageState extends State<Homepage> {
                                   0.8, // Optional: maintain aspect ratio
                               fit: BoxFit.fitHeight,
                             ))
-                        : Text(""),
+                        : const Text(""),
                     screenWidth < 500
                         ? Align(
-                            alignment: Alignment(4, 0.8),
+                            alignment: const Alignment(4, 0.8),
                             child: Image.asset(
                               "assets/images/ProjectEllipse3.png",
                               width: screenWidth * 0.7, // Make width responsive
@@ -86,10 +86,10 @@ class _HomepageState extends State<Homepage> {
                                   0.8, // Optional: maintain aspect ratio
                               fit: BoxFit.fitHeight,
                             ))
-                        : Text(""),
+                        : const Text(""),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(-0.38, -0.4)
+                          ? const Alignment(-0.38, -0.4)
                           : Alignment(leftTextX, topY),
                       child: screenWidth < 500
                           ? Text(
@@ -109,8 +109,8 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(0.55, 0)
-                          : Alignment(0, 0),
+                          ? const Alignment(0.55, 0)
+                          : const Alignment(0, 0),
                       child: Text(
                         'PORTFOLIO',
                         style: TextStyle(
@@ -125,7 +125,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Align(
                       alignment: screenWidth < 500
-                          ? Alignment(0.5, 0.4)
+                          ? const Alignment(0.5, 0.4)
                           : Alignment(rightTextX, bottomY),
                       child: Text(
                         "I build apps and websites with \n innovation and impact.",
@@ -138,7 +138,7 @@ class _HomepageState extends State<Homepage> {
                     Align(
                       alignment: screenWidth < 500
                           ? const Alignment(-16, 0)
-                          : Alignment(-0.01, 0), // Fixed position
+                          : const Alignment(-0.01, 0), // Fixed position
                       child: screenWidth < 500
                           ? Image.asset(
                               "assets/images/skeletal.png",
@@ -161,7 +161,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     screenWidth < 500
                         ? Align(
-                            alignment: Alignment(0.5, 0.7),
+                            alignment: const Alignment(0.5, 0.7),
                             child: TextButton(
                               onPressed: () async {
                                 // Your onPressed logic
@@ -185,7 +185,7 @@ class _HomepageState extends State<Homepage> {
                               ),
                               child: const Row(
                                 mainAxisSize: MainAxisSize.min,
-                                children: const [
+                                children: [
                                   Text(
                                     'To Collab',
                                     style: TextStyle(
@@ -208,7 +208,37 @@ class _HomepageState extends State<Homepage> {
                               ),
                             ),
                           )
-                        : Text("")
+                        : const Text(""),
+                    Align(
+                      alignment: screenWidth < 500
+                          ? Alignment(0.2, 0.9)
+                          : Alignment(0, 1.2),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.keyboard_double_arrow_down,
+                            color: Color.fromARGB(255, 165, 165, 165),
+                            size: 16,
+                          ),
+                          Text(
+                            'Scroll down',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 165, 165, 165),
+                              fontWeight: FontWeight.w500,
+                              fontSize:
+                                  screenWidth < 500 ? 16 : smallTextSize * 0.5,
+                            ),
+                          ),
+                          Icon(
+                            Icons.keyboard_double_arrow_down,
+                            color: const Color.fromARGB(255, 165, 165, 165),
+                            size: 16,
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
